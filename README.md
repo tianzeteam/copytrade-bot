@@ -1,17 +1,22 @@
 # Copy Trade Bot
 
+[点击这里访问官网](https://beyondpump.app)
+
 一个高性能的 Solana 跟单交易机器人，支持多个 DEX 平台的自动化交易。
 
 ## 🚀 功能特性
 
 ### 支持的交易平台
+
 - **Pump.fun** - 支持代币创建和交易
 - **Pump AMM** - 自动化做市商交易
 - **Raydium V4** - Raydium V4 池交易
 - **Raydium Launchpad** - 新代币发布平台交易
 - **Raydium CPMM** - 恒定乘积做市商交易
+- **Metaora   DBC**
 
 ### 核心功能
+
 - 🔄 **实时跟单交易** - 监控目标钱包并自动复制交易
 - 📊 **多级卖出策略** - 支持阶梯式卖出和批量卖出
 - 💰 **智能资金管理** - 自动计算买入金额和滑点控制
@@ -21,6 +26,7 @@
 - 🔐 **安全认证** - 支持用户认证和权限管理
 
 ### 高级特性
+
 - **Yellowstone gRPC** - 高性能实时数据流
 - **Redis 集成** - 钱包监控和数据缓存
 - **多重安全检查** - 防止重复交易和异常操作
@@ -37,24 +43,30 @@
 ## 🛠️ 安装部署
 
 ### 1. 克隆项目
+
 ```bash
 git clone <repository-url>
 cd copy-trade-bot
 ```
 
 ### 2. 安装依赖
+
 ```bash
 go mod download
 ```
 
 ### 3. 配置环境变量
+
 创建 `.env` 文件：
+
 ```env
 REDIS_ADDR=localhost:6379
 ```
 
 ### 4. 配置交易参数
+
 编辑 `config/config.yaml`：
+
 ```yaml
 # 基本配置
 simulate_mode: false  # 是否为模拟模式
@@ -87,6 +99,7 @@ sell_priority_fee: 0.00001  # 卖出优先费
 ```
 
 ### 5. 编译运行
+
 ```bash
 # 编译
 go build -o copytrade main.go
@@ -98,6 +111,7 @@ go build -o copytrade main.go
 ## 🎛️ 配置说明
 
 ### 多级卖出策略
+
 ```yaml
 multi_sell_levels:
   - price_percent: 100  # 价格上涨100%时
@@ -111,6 +125,7 @@ multi_sell_levels:
 ```
 
 ### Jito 配置
+
 ```yaml
 jito:
   buy_tip: 0.0001   # Jito 买入小费
@@ -131,6 +146,7 @@ jito:
 ## 🔧 高级功能
 
 ### 钱包监控
+
 系统支持监控多个目标钱包，当目标钱包进行交易时自动跟单：
 
 ```go
@@ -142,6 +158,7 @@ walletMonitor.RemoveWallet("wallet_address")
 ```
 
 ### 自定义交易策略
+
 可以通过修改 `bot/sell_strategy.go` 实现自定义卖出策略：
 
 ```go
@@ -159,6 +176,7 @@ func (s *CustomStrategy) Execute(tokenInfo *TokenInfo) error {
 ## 📊 监控和日志
 
 ### 日志配置
+
 ```yaml
 logging:
   level: info        # 日志级别: debug, info, warn, error
@@ -167,6 +185,7 @@ logging:
 ```
 
 ### 关键监控指标
+
 - 交易成功率
 - 平均执行时间
 - 滑点控制效果
@@ -200,11 +219,13 @@ logging:
 ## 🔄 更新日志
 
 ### v3.0.1
+
 - 优化交易执行性能
 - 增强 Web 界面功能
 - 修复已知问题
 
 ### v3.0.0
+
 - 重构核心交易引擎
 - 新增多平台支持
 - 改进用户界面
@@ -248,4 +269,3 @@ Web 管理界面功能介绍
 详细的风险警告
 安全使用建议
 技术支持指导
-
